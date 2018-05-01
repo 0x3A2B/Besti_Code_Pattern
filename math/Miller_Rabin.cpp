@@ -1,7 +1,8 @@
 /******************************************
 algorthm: Miller–Rabin primality test
+function: 判断p是否为素数
 input:    long long int p
-return:   bool          isprime(1: prime, 0:not prime)
+return:   bool      isprime(1: prime, 0:not prime)
 ******************************************/
 typedef LL long long int 
 // 18位素数：154590409516822759  
@@ -35,7 +36,7 @@ bool Miller_Rabin(LL p) {
     if(p != 2 && p % 2 == 0) return 0;  
     LL s = p - 1;  
     while(! (s & 1)) s >>= 1;  
-    for(int i = 0; i < 5; ++i) {  
+    for(int i = 0; i < 10; ++i) {  
         if(p == prime[i]) return 1;  
         LL t = s, m = qpow(prime[i], s, p);  
         while(t != p - 1 && m != 1 && m != p - 1) {  
